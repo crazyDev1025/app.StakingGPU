@@ -1578,7 +1578,7 @@
                                 "stake" === e.activeTab &&
                                   "Select how much DPU you want to stake",
                                 "reward" === e.activeTab &&
-                                  "Redeem your points for DOJO GPUs",
+                                  "Redeem your points for Deep GPUs",
                                 "unstake" === e.activeTab &&
                                   "Select how much DPU you want to unstake",
                               ],
