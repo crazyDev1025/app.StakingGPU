@@ -1,0 +1,112 @@
+.Button_button__izga_ {
+  height: 48px;
+  padding: 0;
+  display: flex;
+  margin: auto;
+  border-radius: 8px;
+  border: 2px solid #000;
+  letter-spacing: 0.25px;
+  cursor: pointer;
+  position: relative;
+  background: #fff;
+  color: #000;
+  width: 200px;
+  outline-color: #ace600;
+  outline-offset: 0.25rem;
+  font-weight: 600;
+  text-align: center;
+  transform: scale(1);
+  transition: transform 0.2s ease;
+  overflow: hidden;
+}
+.Button_button__izga_:disabled {
+  cursor: not-allowed;
+  background-color: gray;
+}
+.Button_button__izga_:is(:hover, :focus-visible) {
+  --active: 1;
+}
+.Button_button__izga_ > span:first-of-type {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  position: absolute;
+  inset: 0;
+  transform: scale(calc(1 - (var(--pressed, 0) * 0.05)));
+  transition: transform 0.1s;
+}
+.Button_button__izga_:is(:hover, :focus-visible) .Button_container__q2pqL {
+  width: 100%;
+}
+.Button_container__q2pqL {
+  --mask-image: url(/mask.webp);
+  --spread: 24px;
+  --size: 28px;
+  width: 10px;
+  height: 100%;
+  background: #d2ff4d;
+  position: absolute;
+  left: 0;
+  transition: width 0.25s;
+  border-radius: 6px;
+  container-type: inline-size;
+}
+.Button_primary__aPagT {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  mask: var(--mask-image) 50% 50% / var(--size) var(--size) no-repeat;
+  container-type: inline-size;
+}
+:where(.Button_primary__aPagT, .Button_complimentary__JzQEq):after {
+  --distance: calc(100cqi + 100%);
+  content: "";
+  height: calc(var(--size) * 4);
+  aspect-ratio: 1;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(#000, transparent);
+  animation: Button_fly-by__vU4Pu calc((2 - var(--active, 0)) * 1s) infinite
+    linear;
+}
+@keyframes Button_fly-by__vU4Pu {
+  0% {
+    transform: translateX(-100%) translateY(-50%);
+  }
+  to {
+    transform: translateX(var(--distance)) translateY(-50%);
+  }
+}
+.Button_complimentary__JzQEq {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: var(--active, 0);
+  transition: opacity 0.25s;
+  background: rgba(0, 0, 0, 0.15);
+  mask: var(--mask-image) calc(50% - (var(--spread) * 1)) 50% / var(--size)
+      var(--size) no-repeat,
+    var(--mask-image) calc(50% - (var(--spread) * 2)) 50% / var(--size)
+      var(--size) no-repeat,
+    var(--mask-image) calc(50% - (var(--spread) * 3)) 50% / var(--size)
+      var(--size) no-repeat,
+    var(--mask-image) calc(50% + (var(--spread) * 1)) 50% / var(--size)
+      var(--size) no-repeat,
+    var(--mask-image) calc(50% + (var(--spread) * 2)) 50% / var(--size)
+      var(--size) no-repeat,
+    var(--mask-image) calc(50% + (var(--spread) * 3)) 50% / var(--size)
+      var(--size) no-repeat;
+}
+.Button_button__izga_ > span:nth-of-type(2) {
+  padding: 0 1.1rem 0 calc(58px + 1.1rem);
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+.Button_text__QLYqG {
+  margin: auto;
+}
